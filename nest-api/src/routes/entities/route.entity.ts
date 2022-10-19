@@ -3,8 +3,11 @@ import { Document } from 'mongoose';
 
 export type RouteDocument = Route & Document;
 
-@Schema()
+@Schema({ toJSON: { virtuals: true } })
 export class Route {
+  @Prop()
+  _id: string;
+
   @Prop()
   title: string;
 
